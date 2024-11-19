@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Logs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      max-width: 400px;
+    }
+
+    #popupContainer {
+      padding: 10px;
+      position: relative;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 10px;
+      color: blue;
+    }
+
+    .log {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    .error {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    .request {
+      background-color: rgba(255, 255, 0, 0.1);
+    }
+
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #999;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      gap: 10px; /* Consistent gap between buttons */
+    }
+
+    button {
+      flex: 1; /* Equal width for both buttons */
+      padding: 10px 15px; /* Consistent padding */
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap; /* Prevent text from wrapping */
+    }
+
+    #clearButton {
+      background-color: #ff5733;
+      color: white;
+    }
+
+    #downloadButton {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #filterInput, #filterSelect {
+      width: 100%;
+      margin-bottom: 10px;
+      padding:8px 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    
+
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="popupContainer">
+    <h3>Error Logs</h3>
+    <span class="close-icon" id="closePopup">&times;</span>
+    <input type="text" id="filterInput" placeholder="Search logs...">
+    <select id="filterSelect">
+      <option value="all">All</option>
+      <option value="console">Console Errors</option>
+      <option value="network">Network Errors</option>
+    </select>
+    <div id="logs">
+      <!-- Logs will be dynamically added here -->
+      <p class="no-results" id="noResultsMessage" style="display: none;">No results found.</p>
+    </div>
+    <div id="controls">
+      <button id="clearButton">Clear Logs</button>
+      <button id="downloadButton">Download Logs</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

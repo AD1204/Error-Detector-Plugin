@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Network and Console Error Logger",
+  "short_name": "ErrorLogger",
+  "description": "Monitors failed network requests (400-599) and severe console errors, and allows log filtering, searching, and downloading.",
+  "version": "1.2",
+  "author": "Aman Singh Solanky",
+  "permissions": ["storage", "webRequest"],
+  "host_permissions": ["<all_urls>"],
+  
+"background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+},
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{b69ab29f-0a5a-4c32-b2bf-f4c1f0184af0}", 
+      "strict_min_version": "131.0.3"
+    }
+  }
+}
